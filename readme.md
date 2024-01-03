@@ -154,3 +154,7 @@ docker container ls -a
 ```
 
 [INFO remove Container & Images](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de)
+
+### Stop in docker desktop
+
+![dektop](/img/desktop.png)
