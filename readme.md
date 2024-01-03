@@ -9,17 +9,21 @@ in package.json:
 
 ```javascript
 
-docker pull <imagename> //lädt das image vom docker hub
+docker pull <imagename> //loads the image from the docker hub
 
-docker run <imagename> // erstellt aus einem image ein Container, wenn das Image Lokal nicht vorhanden ist versucht docker es aus dem Hub zu laden
+docker run <imagename> // creates a container from an image, if the image is not available locally docker tries to load it from the hub
 
-docker image ls // listet die vorhanden Image dateien auf
+docker image ls // lists the existing image files
 
-docker container ls // listet alle laufenden Container auf
+docker container ls // lists all running containers
 
-docker container ls -a // listet auch alle beendeten Container auf
+docker container ls -a // also lists all terminated containers
 
-docker start <containername | containerid> // startet den Container
+docker start <containername | containerid> // start the container
+
+docker container stop <containername > // stop the container
+
+docker rm <containername | containerid> // remove container
 
 ```
 
@@ -80,3 +84,73 @@ docker container ls
 check the container list & test the container
 
 ![runid](/img/contworks.png)
+
+# Exercise: Create 1 img & 3 container from the same image with dif. Ports and stop it and delete one container. Start the remaining containers again
+
+![runid](/img/create.png)
+![runid](/img/port1.png)
+![runid](/img/port2.png)
+![runid](/img/port3.png)
+
+All the process:
+
+![done](/img/done.png)
+
+### create the image
+
+```
+docker build .
+docker image ls
+```
+
+### create the 3 containers
+
+```
+
+docker run --name firstdocker_1 -d -p 8081:9000 c98ca0ab7f53
+docker run --name firstdocker_2 -d -p 8082:9000 c98ca0ab7f53
+docker run --name firstdocker_3 -d -p 8083:9000 c98ca0ab7f53
+
+```
+
+### check all containers
+
+```
+
+docker container ls
+
+```
+
+### stop 2 containers
+
+```
+
+docker container stop firstdocker_2 firstdocker_3
+
+```
+
+### check all containers
+
+```
+
+docker container ls -a
+
+```
+
+### remove one container ( delete )
+
+```
+
+docker rm firstdocker_3
+
+```
+
+### last check
+
+```
+
+docker container ls -a
+
+```
+
+[INFO remove Container & Images](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes-de)
