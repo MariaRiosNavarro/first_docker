@@ -59,6 +59,6 @@ CMD ["node", "app.js"]
 
 # BUILD IMAGE
 
-docker buid .
+docker build .
 
-![buildimage]("/img/buildImage.png")
+![buildimage](/img/buildImage.png)
