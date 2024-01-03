@@ -62,3 +62,21 @@ CMD ["node", "app.js"]
 docker build .
 
 ![buildimage](/img/buildImage.png)
+
+docker image ls
+
+![list](/img/listimg.png)
+
+docker run --name firstdocker_01 -d -p 8080:9000 1599a7e57c93
+
+(with the id run the image in backdround (-d) and give a new port for 9000-> here 8080)
+
+![runid](/img/runid.png)
+
+docker container ls
+
+![runid](/img/clist.png)
+
+check the container list & test the container
+
+![runid](/img/contworks.png)
